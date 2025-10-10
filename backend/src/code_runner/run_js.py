@@ -29,7 +29,6 @@ def run_js(path: str) -> CodeRunResponse:
             text=True,
             timeout=5,
         )
-        print("This is the result")
     except subprocess.TimeoutExpired:
         return CodeRunResponse(
             success=False,

@@ -8,3 +8,6 @@ venv
 /questions/
 /questions_copy/
 question_manager_test
+
+__pycache__/
+*.pyc

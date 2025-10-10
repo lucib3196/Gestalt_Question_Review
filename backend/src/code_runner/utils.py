@@ -7,6 +7,7 @@ from fastapi import status
 from starlette import status as starlette_status  # if you actually need both
 import execjs
 from typing import Any
+
 # --- Internal ---
 from src.code_runner.models import CodeRunResponse, CodeRunException
 
@@ -205,7 +206,7 @@ def run_javascript(ctx, isTesting: bool):
         )
 
 
-def validate_test_result_structure(testing_data: dict[str,Any]):
+def validate_test_result_structure(testing_data: dict[str, Any]):
     if testing_data is None:
         raise CodeRunException(
             error="Expected testing results received none",

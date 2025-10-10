@@ -3,7 +3,6 @@ import json
 from typing import Union, Literal
 from uuid import UUID
 from pathlib import Path
-from typing import cast
 
 # Third-party
 from fastapi import HTTPException
@@ -15,9 +14,20 @@ from src.api.core.logging import logger
 from src.api.database import SessionDep
 from src.code_runner.run_server import run_generate
 from src.utils import convert_uuid
-from src.api.service import refactor_question_storage_service as qs
-from src.api.response_models import SuccessFileResponse, FileData
-from src.api.dependencies import QuestionManagerDependency
+from src.api.dependencies import QuestionManagerDependency, QuestionManager
+from src.utils import convert_uuid
+
+
+MAPPING_DB = {"python": "server.py", "javascript": "server.js"}
+MAPPPING_FILENAME = {"python": "server.py", "javascript": "server.js"}
+
+
+class CodeRunner:
+    def __init__(
+        self, question_id: Union[str, UUID], language: Literal["python", "javascript"]
+    ):
+        self.qid = convert_uuid(question_id)
+        self.language = language
 
 
 async def run_server(

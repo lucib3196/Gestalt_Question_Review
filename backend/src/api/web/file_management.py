@@ -9,7 +9,7 @@ from starlette import status
 
 # --- Internal ---
 from src.api.database import SessionDep
-from src.api.models.question_model import Question, QuestionMeta
+from src.api.models.models import Question, QuestionMeta
 from src.api.response_models import *
 from src.api.service.crud import question_crud
 from src.api.service import refactor_question_storage_service as qs
@@ -19,7 +19,7 @@ from fastapi import FastAPI, File, UploadFile
 from typing import Dict
 from fastapi import Form
 import json
-from src.api.models import Language
+from src.api.models.models import Language
 
 router = APIRouter(prefix="/file_uploads", tags=["file_uploads"])
 

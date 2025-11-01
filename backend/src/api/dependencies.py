@@ -1,16 +1,18 @@
 from fastapi import Depends
 from src.api.service.question_manager import QuestionManager
-from src.api.core import settings, logger
+from src.api.core import logger
+from src.api.core.config import get_settings
 from src.api.service.storage import FireCloudStorageService, LocalStorageService
 from typing import Annotated
 
+settings = get_settings()
 
 def get_question_manager() -> QuestionManager:
     if settings.STORAGE_SERVICE == "cloud":
-        if not (settings.FIREBASE_PATH and settings.STORAGE_BUCKET):
+        if not (settings.FIREBASE_CRED and settings.STORAGE_BUCKET):
             raise ValueError("Settings for Cloud Storage not Set")
         storage_service = FireCloudStorageService(
-            cred_path=settings.FIREBASE_PATH,
+            cred_path=settings.FIREBASE_CRED,
             bucket_name=settings.STORAGE_BUCKET,
             base_name="UCR_Questions",
         )

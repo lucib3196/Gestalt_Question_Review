@@ -4,30 +4,19 @@ from sqlalchemy import func
 from sqlmodel import select
 
 from src.api.database import SessionDep
-from src.api.models.question_model import Language, QType, Topic
+from src.api.models.models import Language, QType, Topic
 from src.utils import normalize_name
+from src.api.database.generic_db import create_or_resolve
 
 
-# --------------------
-# QType CRUD
-# --------------------
-def create_qtype(session: SessionDep, name: str) -> QType:
-    """
-    Create (or fetch existing) question type by name.
-    Normalizes to lowercase and trims whitespace.
-    """
-    canon = normalize_name(name)
-    existing = session.exec(
-        select(QType).where(func.lower(QType.name) == canon)
-    ).first()
-    if existing:
-        return existing
+def create_qtype(name: str, session: SessionDep) -> QType:
+    return create_or_resolve(QType, name, session)[0]
 
-    qt = QType(name=canon)
-    session.add(qt)
-    session.commit()
-    session.refresh(qt)
-    return qt
+def create_qtopic(name: str, session: SessionDep) -> Topic:
+    return create_or_resolve(Topic, name, session)[0]
+
+def create_language(name: str, session: SessionDep) -> Language:
+    return create_or_resolve(Language, name, session)[0]
 
 
 def list_qtypes(session: SessionDep) -> Sequence[QType]:
@@ -64,24 +53,6 @@ def delete_all_qtypes(session: SessionDep) -> None:
     """Delete all qtypes."""
     for qt in session.exec(select(QType)).all():
         delete_qtype(session, qt)
-
-
-# --------------------
-# Language CRUD
-# --------------------
-def create_language(session: SessionDep, name: str) -> Language:
-    canon = normalize_name(name)
-    existing = session.exec(
-        select(Language).where(func.lower(Language.name) == canon)
-    ).first()
-    if existing:
-        return existing
-
-    lang = Language(name=canon)
-    session.add(lang)
-    session.commit()
-    session.refresh(lang)
-    return lang
 
 
 def list_languages(session: SessionDep) -> Sequence[Language]:

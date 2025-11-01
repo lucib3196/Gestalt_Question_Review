@@ -7,7 +7,7 @@ from uuid import UUID
 # Internal
 from src.api.core import logger
 from src.api.database import SessionDep
-from src.api.models import Question
+from src.api.models.models import Question
 from src.api.response_models import FileData
 from src.api.service.crud import question_crud as qc
 from src.api.service.storage import StorageService
@@ -18,11 +18,13 @@ from starlette import status
 import io
 from typing import Dict, Any
 from pydantic import ValidationError
-from src.api.database import question_db as qdb
+from src.api.database import question as qdb
 from src.api.service.file_handler import FileService
 
 
-from src.api.core import settings
+from src.api.core.config import get_settings
+
+settings = get_settings()
 
 
 class QuestionManager:
@@ -39,7 +41,7 @@ class QuestionManager:
 
         # TODO: Need to make this a bit better
         ## General file service mostly just used for the starter template download
-        self.file_service = FileService(settings.BASE_PATH)
+        self.file_service = FileService(settings.ROOT_PATH)
 
     # ---------------------------
     # Question Lifecycle
@@ -151,7 +153,7 @@ class QuestionManager:
     ) -> Sequence[Question] | None:
         try:
             if self.storage_type == "cloud":
-                filter = Question.blob_name != None
+                filter = Question.blob_path != None
             else:
                 filter = Question.local_path != None
 
@@ -180,7 +182,7 @@ class QuestionManager:
     async def filter_questions(self, session: SessionDep, **kwargs):
         try:
             if self.storage_type == "cloud":
-                filter = Question.blob_name != None
+                filter = Question.blob_path != None
             else:
                 filter = Question.local_path != None
 
@@ -375,10 +377,10 @@ class QuestionManager:
     async def download_starter_templates(self) -> Dict[str, bytes]:
         try:
             adaptive_template = (
-                Path(settings.BASE_PATH) / "starter_templates" / "AdaptiveStarter"
+                Path(settings.ROOT_PATH) / "starter_templates" / "AdaptiveStarter"
             )
             nonadaptive_template = (
-                Path(settings.BASE_PATH) / "starter_templates" / "NonAdaptive"
+                Path(settings.ROOT_PATH) / "starter_templates" / "NonAdaptive"
             )
             adaptive_bytes = await self.file_service.download_zip(
                 [p for p in adaptive_template.iterdir()],
@@ -408,7 +410,7 @@ class QuestionManager:
             if self.storage_type == "local":
                 return q.local_path
             elif self.storage_type == "cloud":
-                return q.blob_name
+                return q.blob_path
         except Exception as e:
             logger.error(
                 "Failed to get question path for %s: %s", getattr(q, "title", None), e
@@ -433,7 +435,7 @@ class QuestionManager:
 
             elif self.storage_type == "cloud":
                 q.blob_name = relative_path
-                logger.info("Cloud question path set → %s", q.blob_name)
+                logger.info("Cloud question path set → %s", q.blob_path)
 
             else:
                 raise ValueError(f"Unknown storage type: {self.storage_type}")

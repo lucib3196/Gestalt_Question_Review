@@ -14,8 +14,8 @@ from fastapi.responses import StreamingResponse
 from src.api.core import logger
 from src.api.database import SessionDep
 from src.api.dependencies import QuestionManagerDependency
-from src.api.models import Question
-from src.api.models.question_model import QuestionMeta
+from src.api.models.models import Question
+from src.api.models.question import QuestionMeta
 from src.api.response_models import *
 from src.api.service.file_handler import FileService
 from src.utils import normalize_kwargs, serialized_to_dict

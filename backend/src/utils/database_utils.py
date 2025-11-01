@@ -13,6 +13,7 @@ from sqlmodel import SQLModel, select
 from src.api.database import SessionDep
 from datetime import datetime
 
+
 def convert_uuid(uuid: str | UUID) -> UUID:
     try:
         if isinstance(uuid, UUID):
@@ -26,59 +27,7 @@ def convert_uuid(uuid: str | UUID) -> UUID:
 T = TypeVar("T", bound=SQLModel)
 
 
-def resolve_or_create(
-    session: SessionDep,
-    target_cls: Type[T],
-    value: str,
-    create_field: bool = True,
-    lookup_field: str = "name",
-) -> Tuple[T, bool]:
-    """
-    Resolve an existing database object by a given lookup field, or create it if not found.
 
-    Args:
-        session (SessionDep): The database session used to query and persist objects.
-        target_cls (Type[SQLModel]): The SQLModel class representing the database table.
-        value (str): The value to look up in the specified lookup_field.
-        create_field (bool, optional): Whether to create a new object if no match is found. Defaults to True.
-        lookup_field (str, optional): The field name used for lookup. Defaults to "name".
-
-    Returns:
-        Tuple[SQLModel, bool]:
-            - The resolved or newly created object.
-            - A boolean indicating whether the object already existed (True) or was newly created (False).
-
-    Raises:
-        ValueError: If no existing object is found, creation is disabled, or the target_cls/lookup_field is invalid.
-    """
-    stmt = select(target_cls).where(
-        func.lower(getattr(target_cls, lookup_field)) == value.lower().strip()
-    )
-    result = session.exec(stmt).first()
-
-    if result:
-        return result, True
-
-    if create_field:
-        obj: SQLModel = target_cls(**{lookup_field: value.lower().strip()})
-        session.add(obj)
-        session.commit()
-        session.refresh(obj)
-        return obj, False
-
-    raise ValueError(
-        f"Object of type '{target_cls.__name__}' with {lookup_field}='{value}' not found "
-        f"and create_field=False"
-    )
-
-
-def is_relationship(model: Type[T], attr_name: str) -> bool:
-    """True if model.attr_name is a relationship."""
-    try:
-        prop = inspect(model).get_property(attr_name)
-        return isinstance(prop, RelationshipProperty)
-    except UnmappedInstanceError:
-        return False
 
 
 def view_models_relationship(

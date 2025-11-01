@@ -8,7 +8,7 @@ from src.api.dependencies import (
     get_question_manager,
     QuestionManager,
 )
-from src.api.models.question_model import QuestionMeta
+from src.api.models.models import QuestionMeta
 from pydantic import BaseModel, PositiveInt, ValidationError
 import json
 from src.api.database import get_session, Session

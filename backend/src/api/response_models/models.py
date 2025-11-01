@@ -7,7 +7,7 @@ from uuid import UUID
 from pydantic import BaseModel, Field
 
 # --- Internal ---
-from src.api.models.question_model import QuestionMeta
+from src.api.models.question import QuestionMeta
 
 
 class FileData(BaseModel):

@@ -13,10 +13,11 @@ from fastapi.staticfiles import StaticFiles
 from pathlib import Path
 
 # Local application imports
-from src.api.core.config import settings
 from src.api.database.database import create_db_and_tables
 from src.api.web import routes
+from src.api.core.config import get_settings
 
+settings = get_settings()
 
 ## Intializes the database
 @asynccontextmanager

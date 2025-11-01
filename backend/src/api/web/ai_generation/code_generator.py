@@ -5,12 +5,10 @@ from typing import Optional, List
 
 # --- Third-Party ---
 from fastapi import APIRouter, Body, Depends, HTTPException
-from starlette import status
 from pydantic import BaseModel
 
 # --- Internal ---
-from src.api.database.database import get_session, SessionDep
-from src.api.service.auth import user
+from src.api.database.database import get_session
 from src.api.service.ai_generation.code_generation import run_text, run_image
 from fastapi import UploadFile
 from src.api.dependencies import QuestionManagerDependency

@@ -10,9 +10,9 @@ from sqlmodel import select
 from src.utils import pick
 
 # --- Internal ---
-from src.api.core import settings
+from src.api.core.config import get_settings
 from src.api.database import SessionDep, get_session
-from src.api.models.question_model import Question
+from src.api.models.models import Question
 from src.api.service import refactor_question_storage_service as qs
 from src.api.service.crud import question_crud as qc
 from src.utils import normalize_kwargs
@@ -23,7 +23,7 @@ from src.utils import convert_uuid
 from src.utils import normalize_timestamps
 from src.ai_workspace.utils import to_serializable
 
-
+settings = get_settings()
 async def read_file_async(path: Path) -> str:
     loop = asyncio.get_running_loop()
     # offload file IO

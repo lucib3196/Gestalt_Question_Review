@@ -1,7 +1,8 @@
 # --- Standard Library ---
 import os
 from pathlib import Path
-from typing import Optional, Literal, Union
+from functools import lru_cache
+from typing import Optional, Literal, Union, Sequence
 
 # --- Third-Party ---
 from dotenv import load_dotenv
@@ -11,12 +12,16 @@ from pydantic_settings import BaseSettings
 
 load_dotenv()
 
+# Points to the root directory adjust as needed
+ROOT_PATH = Path(__file__).parents[4]
+
 
 class AppSettings(BaseSettings):
     PROJECT_NAME: str
-    ENV: Literal["testing", "dev", "production"] = "dev"
+    MODE: Literal["testing", "dev", "production"] = "dev"
     STORAGE_SERVICE: Literal["local", "cloud"] = "local"
-    BACKEND_CORS_ORIGINS: list[AnyHttpUrl | str] = []
+
+    BACKEND_CORS_ORIGINS: Sequence[AnyHttpUrl | str] = []
     SECRET_KEY: str
 
     # User authentication
@@ -24,18 +29,8 @@ class AppSettings(BaseSettings):
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 30
     AUTH_URL: str = "/auth/login"
 
-    # Database Settings
-    DATABASE_URI: Optional[str] = None
-    DATABASE_URL: Optional[str] = None
-
-    # Cloud Storage
-    FIREBASE_PATH: Optional[Union[str, Path]] = None
-    STORAGE_BUCKET: Optional[str] = None
-
-    # Static Directory
-    QUESTIONS_DIRNAME: Union[str, Path]
-    QUESTIONS_PATH: Union[str, Path]
-    BASE_PATH: Union[str, Path]
+    # Directory
+    WORKING_DIR: Optional[str | Path] = None
 
     @field_validator("BACKEND_CORS_ORIGINS", mode="before")
     @classmethod
@@ -46,33 +41,59 @@ class AppSettings(BaseSettings):
             return v
         raise ValueError(v)
 
+    # Database Settings
+    DATABASE_URI: Optional[str] = None
+    POSTGRES_URL: Optional[str] = None
     SQLITE_DB_PATH: Optional[str] = None
+
+    # Cloud Storage
+    FIREBASE_CRED: Optional[str] = None
+    STORAGE_BUCKET: Optional[str] = None
 
     @field_validator("SQLITE_DB_PATH", mode="before")
     @classmethod
     def assemble_db_connection(cls, v: Optional[str], info: ValidationInfo) -> str:
         return v or ":memory:"
 
-    class ConfigDict:
-        case_sensitive = True
-        env_file = ".env"
+    # Static Directory
+    QUESTIONS_DIRNAME: Union[str, Path]
+    QUESTIONS_PATH: Union[str, Path]
+    ROOT_PATH: Union[str, Path]
+
+    SQLITE_DB_PATH: Optional[str] = None
 
 
-# TODO Change this to an environment variable
-BASE_DIR = Path(__file__).resolve().parents[4]
-firebase_env = os.getenv("FIREBASE_SERVICE_ACCOUNT_JSON")
+@lru_cache
+def get_settings() -> AppSettings:
+    valid_modes = ("testing", "dev", "production")
+    env_mode = os.getenv("MODE", "dev")
+    if env_mode not in valid_modes:
+        raise ValueError(f"Invalid MODE: {env_mode}. Must be one of {valid_modes}")
+    allowed_origins = os.getenv("ALLOWED_ORIGINS")
+    if allowed_origins:
+        allowed_origins = allowed_origins.split(",")
+    else:
+        allowed_origins = []
+
+    app_settings = AppSettings(
+        PROJECT_NAME="GestaltQuestions",
+        BACKEND_CORS_ORIGINS=[
+            "http://localhost:5173",
+            "http://127.0.0.1:5173",
+        ],
+        SECRET_KEY=os.getenv("SECRET_KEY", ""),
+        QUESTIONS_DIRNAME="questions",
+        QUESTIONS_PATH=ROOT_PATH / "questions",
+        ROOT_PATH=ROOT_PATH,
+        FIREBASE_CRED=os.getenv("FIREBASE_CRED", "default_firebase_cred"),
+        STORAGE_BUCKET=os.getenv("STORAGE_BUCKET"),
+        SQLITE_DB_PATH=Path(os.getenv("SQLITE_DB_PATH", ":memory:"))
+        .resolve()
+        .as_posix(),
+        POSTGRES_URL=os.getenv("POSTGRES_URL"),
+    )
+    return app_settings
 
 
-settings = AppSettings(
-    PROJECT_NAME="gestalt_question_review",
-    BACKEND_CORS_ORIGINS=[
-        "http://localhost:5173",
-        "http://127.0.0.1:5173",
-    ],
-    SECRET_KEY=os.getenv("SECRET_KEY", ""),
-    FIREBASE_PATH=(Path(BASE_DIR) / str(firebase_env)).resolve().as_posix(),
-    STORAGE_BUCKET=os.getenv("STORAGE_BUCKET"),
-    QUESTIONS_DIRNAME="questions",  # relative folder name only
-    QUESTIONS_PATH=BASE_DIR / "questions",
-    BASE_PATH=BASE_DIR,
-)
+if __name__ == "__main__":
+    print(get_settings())

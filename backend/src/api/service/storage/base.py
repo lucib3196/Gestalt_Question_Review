@@ -3,6 +3,7 @@ from pathlib import Path
 from typing import Union, Optional, List
 from google.cloud.storage.blob import Blob
 import io
+from typing import IO, Optional, Annotated
 
 
 class StorageService:
@@ -28,21 +29,11 @@ class StorageService:
         """
         raise NotImplementedError("get_base_path must be implemented by subclass")
 
-    def get_base_name(self) -> str:
-        """
-        Return the logical name of the storage base directory or bucket.
-
-        Examples
-        --------
-        - For local storage: 'questions'
-        - For cloud storage: 'my-bucket-name'
-        """
-        raise NotImplementedError("get_base_name must be implemented by subclass")
 
     # -------------------------------------------------------------------------
     # Storage path operations
     # -------------------------------------------------------------------------
-    def get_storage_path(self, identifier: str) -> Path:
+    def get_storage_path(self, destination: str) -> str:
         """
         Return the absolute path to the directory for a given resource identifier.
 
@@ -58,7 +49,7 @@ class StorageService:
         """
         raise NotImplementedError("get_storage_path must be implemented by subclass")
 
-    def create_storage_path(self, identifier: str) -> Path | Blob:
+    def create_storage_path(self, destination: str) -> Path | Blob:
         """
         Create a new directory or container for the given resource identifier.
 
@@ -92,7 +83,7 @@ class StorageService:
             "get_relative_storage_path must be implemented by subclass"
         )
 
-    def does_storage_path_exist(self, identifier: str) -> bool:
+    def does_storage_path_exist(self, target: str) -> bool:
         """
         Check whether a storage directory or container exists for the given identifier.
 
@@ -113,7 +104,7 @@ class StorageService:
     # -------------------------------------------------------------------------
     # File operations
     # -------------------------------------------------------------------------
-    def get_file(self, identifier: str, filename: str) -> Optional[bytes]:
+    def get_file(self, target: str, filename: Optional[str] = None) -> Optional[bytes]:
         """
         Retrieve the raw contents of a file for a given identifier.
 
@@ -131,7 +122,7 @@ class StorageService:
         """
         raise NotImplementedError("get_file must be implemented by subclass")
 
-    def get_filepath(self, identifier: str, filename: str) -> Path:
+    def get_filepath(self, target_path: str, filename: Optional[str] = None) -> str:
         """
         Return the absolute path to a specific file inside an identifier directory.
 
@@ -148,6 +139,17 @@ class StorageService:
             The absolute path to the requested file.
         """
         raise NotImplementedError("get_filepath must be implemented by subclass")
+
+    def upload_file(
+        self,
+        file_obj: IO[bytes],
+        target_path: str,
+        filename: Optional[str] = None,
+        content_type: str = "application/octet-stream",
+    ) -> Blob | Path:
+        raise NotImplementedError(
+            "Upload file must be implemented by base storage class"
+        )
 
     def save_file(
         self,
@@ -177,7 +179,7 @@ class StorageService:
         """
         raise NotImplementedError("save_file must be implemented by subclass")
 
-    def list_file_names(self, identifier: str) -> List[str]:
+    def list_files(self, target: str) -> List[str]:
         """
         List all file names under a given identifier directory.
 
@@ -193,7 +195,7 @@ class StorageService:
         """
         raise NotImplementedError("list_file_names must be implemented by subclass")
 
-    def delete_storage(self, identifier: str) -> None:
+    def delete_storage(self, target: str) -> None:
         """
         Delete an entire storage directory or container for the given identifier.
 

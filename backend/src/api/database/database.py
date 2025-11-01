@@ -1,49 +1,45 @@
-import os
-from pathlib import Path
 from typing import Annotated, Generator
-
 from dotenv import load_dotenv
 from fastapi import Depends
 from sqlmodel import SQLModel, Session, create_engine
 
-from src.api.core import settings, logger
+from src.api.core.config import get_settings
+from src.api.core import logger
+
+app_settings = get_settings()
 
 load_dotenv()
 
 # Define choosing the settings
-if settings.ENV == "testing":
+if app_settings.MODE == "testing":
     DATABASE_URL = "sqlite:///:memory:"
-elif settings.ENV == "production":
-    DATABASE_URL = os.getenv("POSTGRES_URL")
+elif app_settings.MODE == "production":
+    DATABASE_URL = app_settings.POSTGRES_URL
     if not DATABASE_URL:
         raise RuntimeError("POSTGRES_URL must be set in production mode")
-elif settings.ENV == "dev":
-    # Local Development database is stored within the same directory as this file
-    base_dir = Path(__file__).parent.resolve()
-    database_path = Path(base_dir / "database.db").resolve()
-    DATABASE_URL = f"sqlite:///{database_path}"
+elif app_settings.MODE == "dev":
+    DATABASE_URL = f"sqlite:///{app_settings.SQLITE_DB_PATH}"
+
     # raise NotImplementedError("Development database is not ready yet")
 else:
-    raise ValueError(f"Unknown environment: {settings.ENV}")
-
-# Redundant but just incase
-settings.DATABASE_URL = DATABASE_URL
-logger.info(
-    f"Database Settings set to {settings.ENV} Database URL: {settings.DATABASE_URL}"
-)
-
-# Connection Arguments
-connect_args = {}
-if settings.DATABASE_URL.startswith("sqlite"):
-    connect_args = {"check_same_thread": False}  # Only needed for SQLite
-engine = create_engine(url=settings.DATABASE_URL, echo=True, connect_args=connect_args)
-
-Base = SQLModel
+    raise ValueError(f"Unknown environment: {app_settings.MODE}")
 
 
-# -------------------------------------------------------------------
-# Database Initialization
-# -------------------------------------------------------------------
+logger.info(f"[DATABASE Intialization]: Database path set to {DATABASE_URL}")
+try:
+    connect_args = {}
+    if app_settings.MODE == "dev" and DATABASE_URL.startswith("sqlite"):
+        connect_args = {"check_same_thread": False}
+    engine = create_engine(
+        url=DATABASE_URL,
+        echo=True,
+        connect_args=connect_args,  # always a dict, never None
+    )
+    Base = SQLModel
+except Exception as e:
+    raise RuntimeError(f"Error initializing database engine {e}")
+
+
 def create_db_and_tables(engine=engine):
     Base.metadata.create_all(engine)
     return engine

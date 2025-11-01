@@ -13,15 +13,17 @@ from src.api.core import logger
 
 # --- Internal ---
 from .base import StorageService
-from src.api.core import settings, logger
+from src.api.core import  logger
+from src.api.core.config import get_settings
 from src.utils import safe_dir_name
 import io
 import zipfile
 import json
 from src.api.service.file_handler.content_type import get_content_type
 
+settings = get_settings()
 # Define the credentials
-if not settings.FIREBASE_PATH:
+if not settings.FIREBASE_CRED:
     raise ValueError("Firebase Credentials Not Found")
 
 
@@ -140,8 +142,8 @@ class FireCloudStorageService(StorageService):
                 files.append(relative_path.split("/")[-1])
         return files
 
-    def delete_storage(self, identifier: str) -> None:
-        target = self.get_storage_path(identifier).as_posix()
+    def delete_storage(self, target: str) -> None:
+        target = self.get_storage_path(target).as_posix()
         for blob in self.bucket.list_blobs(prefix=target):
             try:
                 logger.info("Deleting %s", blob.name)

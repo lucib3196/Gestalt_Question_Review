@@ -5,6 +5,7 @@
 *.db
 /.env
 ai.env
+FIREBASE_CRED.json
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

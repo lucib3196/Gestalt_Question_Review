@@ -5,21 +5,18 @@ import NavBar from "./components/NavBar/NavBar";
 import { ToastContainer } from "react-toastify";
 import CodeEditorProvider from "./context/CodeEditorContext";
 import { QuestionProvider } from "./context/QuestionContext";
-
-import { QuestionRuntimeProvider } from './context/QuestionAnswerContext';
-
-
-
+import { QuestionRuntimeProvider } from "./context/QuestionAnswerContext";
+import { AuthModeProvider } from "./context/AuthMode";
 const config = {
   loader: { load: ["[tex]/ams"] },
   tex: {
     inlineMath: [
       ["$", "$"],
-      ["\(", "\)"]
+      ["(", ")"],
     ],
     displayMath: [
       ["$$", "$$"],
-      ["\\[", "\\]"]
+      ["\\[", "\\]"],
     ],
     processEscapes: true,
   },
@@ -29,24 +26,28 @@ const config = {
   },
 };
 
+
 function App() {
   return (
     <AuthProvider>
       <MathJaxContext version={3} config={config}>
-        <QuestionRuntimeProvider>
-          <QuestionSettingsProvider>
-            <QuestionProvider>
-              <CodeEditorProvider>
-                {/* Main Content */}
-                <NavBar />
-                <ToastContainer />
-                {/* <LecturePage /> */}
-                {/* <LegacyQuestion /> */}
-                {/* End of Main Content */}
-              </CodeEditorProvider>
-            </QuestionProvider>
-          </QuestionSettingsProvider>
-        </QuestionRuntimeProvider>
+        <AuthModeProvider>
+          <QuestionRuntimeProvider>
+            <QuestionSettingsProvider>
+              <QuestionProvider>
+                <CodeEditorProvider>
+                  {/* Main Content */}
+                  <NavBar />
+                  <ToastContainer />
+
+                  {/* <LecturePage /> */}
+                  {/* <LegacyQuestion /> */}
+                  {/* End of Main Content */}
+                </CodeEditorProvider>
+              </QuestionProvider>
+            </QuestionSettingsProvider>
+          </QuestionRuntimeProvider>
+        </AuthModeProvider>
       </MathJaxContext>
     </AuthProvider>
   );

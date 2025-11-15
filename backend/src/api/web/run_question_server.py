@@ -11,7 +11,7 @@ from starlette import status
 # Local application imports
 from src.api.core import logger
 from src.api.database import SessionDep
-from src.api.service.question_manager import QuestionManagerDependency
+from src.api.service.question.question_manager import QuestionManagerDependency
 from src.code_runner.models import CodeRunException, CodeRunResponse, QuizData
 from src.code_runner.runtime_switcher import run_generate
 from src.api.service.storage_manager import StorageDependency

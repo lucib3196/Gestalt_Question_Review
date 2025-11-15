@@ -8,7 +8,7 @@ import {
     type ReactNode,
 } from "react";
 
-import { QuestionAPI } from "../api/questionCrud";
+import { QuestionAPI } from "../api/questionAPI";
 import type { QuestionMeta } from "../types/questionTypes";
 
 type QuestionContextType = {

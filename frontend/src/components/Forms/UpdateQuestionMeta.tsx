@@ -3,7 +3,7 @@ import type { QuestionMeta } from "../../types/questionTypes";
 import { InputTextForm } from "./InputComponents";
 import { useState, type FormEvent } from "react";
 import { MyButton } from "../Base/Button";
-import { QuestionAPI } from "./../../api/questionCrud";
+import { QuestionAPI } from "../../api/questionAPI";
 import type { QuestionData } from "../../types/questionTypes";
 import { toast } from "react-toastify";
 
@@ -138,7 +138,7 @@ export default function QuestionUpdateForm() {
                     </label>
                 </div>
 
-                <MyButton name="Submit" btype="submit" />
+                <MyButton name="Submit" type="submit" />
             </form>
         </div>
     );

@@ -14,7 +14,7 @@ from src.api.core.config import get_settings
 from src.api.database.database import Base, get_session
 from src.api.main import get_application
 from src.api.models import FileData
-from src.api.service.question_manager import QuestionManager, get_question_manager
+from src.api.service.question.question_manager import QuestionManager, get_question_manager
 from src.api.service.storage_manager import (
     get_storage_manager,
 )

@@ -9,10 +9,11 @@ const modalSizeVariants = {
     md:w-1/2 md:max-w-lg
   `,
   default: `
-    w-11/12 max-w-md   h-auto max-h-[85vh]
+    w-11/12 max-w-md h-auto max-h-[85vh]
     sm:w-3/4 sm:max-w-lg
     md:w-2/3 md:max-w-2xl
     lg:w-1/2 lg:max-w-3xl
+    min-h-1/2
   `,
   large: `
     w-11/12 h-8/10

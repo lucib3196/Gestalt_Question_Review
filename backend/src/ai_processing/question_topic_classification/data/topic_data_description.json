@@ -1,0 +1,759 @@
+{
+  "topics": [
+    {
+      "name": "Statics",
+      "description": "Covers the analysis of forces, moments, and equilibrium in stationary structures and mechanical systems.",
+      "discipline": [
+        "Mechanical Engineering",
+        "Civil Engineering",
+        "Aerospace Engineering"
+      ]
+    },
+    {
+      "name": "Dynamics",
+      "description": "Focuses on motion and the forces that cause motion in mechanical systems, including kinematics and kinetics.",
+      "discipline": [
+        "Mechanical Engineering",
+        "Aerospace Engineering",
+        "Civil Engineering"
+      ]
+    },
+    {
+      "name": "Thermodynamics",
+      "description": "Studies energy systems, including heat, work, and the laws governing energy transfer and transformation.",
+      "discipline": [
+        "Mechanical Engineering",
+        "Chemical Engineering",
+        "Aerospace Engineering"
+      ]
+    },
+    {
+      "name": "Fluid Mechanics",
+      "description": "Deals with the behavior of fluids (liquids and gases) at rest and in motion, including pressure, flow rate, and viscosity.",
+      "discipline": [
+        "Mechanical Engineering",
+        "Civil Engineering",
+        "Aerospace Engineering",
+        "Chemical Engineering"
+      ]
+    },
+    {
+      "name": "Heat Transfer",
+      "description": "Examines how thermal energy moves through conduction, convection, and radiation in various systems.",
+      "discipline": [
+        "Mechanical Engineering",
+        "Chemical Engineering",
+        "Aerospace Engineering"
+      ]
+    },
+    {
+      "name": "Mechanics of Materials",
+      "description": "Analyzes stress, strain, deformation, and failure of materials under different loading conditions.",
+      "discipline": [
+        "Mechanical Engineering",
+        "Civil Engineering",
+        "Aerospace Engineering",
+        "Materials Science and Engineering"
+      ]
+    },
+    {
+      "name": "Machine Design",
+      "description": "Covers the principles and methods for designing mechanical components and systems like gears, shafts, and bearings.",
+      "discipline": ["Mechanical Engineering", "Manufacturing Engineering"]
+    },
+    {
+      "name": "Control Systems",
+      "description": "Focuses on feedback and control theory for mechanical and electromechanical systems, including modeling and stability.",
+      "discipline": [
+        "Mechanical Engineering",
+        "Electrical Engineering",
+        "Aerospace Engineering",
+        "Robotics"
+      ]
+    },
+    {
+      "name": "Manufacturing Processes",
+      "description": "Explores material processing techniques such as machining, casting, welding, and additive manufacturing.",
+      "discipline": [
+        "Mechanical Engineering",
+        "Manufacturing Engineering",
+        "Materials Science and Engineering"
+      ]
+    },
+    {
+      "name": "Materials Science",
+      "description": "Studies the properties, structure, and performance of engineering materials, including metals, polymers, and composites.",
+      "discipline": [
+        "Mechanical Engineering",
+        "Materials Science and Engineering",
+        "Chemical Engineering"
+      ]
+    },
+    {
+      "name": "Numerical Methods",
+      "description": "Covers computational techniques for solving engineering problems, including finite difference and finite element methods.",
+      "discipline": [
+        "Mechanical Engineering",
+        "Civil Engineering",
+        "Electrical Engineering"
+      ]
+    },
+    {
+      "name": "Engineering Design",
+      "description": "Involves the structured process of defining, developing, and evaluating solutions to engineering problems.",
+      "discipline": [
+        "Mechanical Engineering",
+        "Industrial Engineering",
+        "Systems Engineering"
+      ]
+    },
+    {
+      "name": "Robotics and Mechatronics",
+      "description": "Integrates mechanical systems with electronics and control for autonomous and semi-autonomous machines.",
+      "discipline": [
+        "Mechanical Engineering",
+        "Electrical Engineering",
+        "Computer Engineering",
+        "Robotics"
+      ]
+    },
+    {
+      "name": "Vibrations",
+      "description": "Analyzes oscillatory motions in mechanical systems, including free and forced vibrations and damping.",
+      "discipline": [
+        "Mechanical Engineering",
+        "Aerospace Engineering",
+        "Civil Engineering"
+      ]
+    },
+    {
+      "name": "Computational Fluid Dynamics (CFD)",
+      "description": "Uses numerical analysis and algorithms to solve and analyze fluid flow problems.",
+      "discipline": [
+        "Mechanical Engineering",
+        "Aerospace Engineering",
+        "Chemical Engineering"
+      ]
+    },
+    {
+      "name": "Finite Element Analysis (FEA)",
+      "description": "Focuses on breaking down complex structures into simpler parts for stress, deformation, and heat transfer analysis.",
+      "discipline": [
+        "Mechanical Engineering",
+        "Civil Engineering",
+        "Aerospace Engineering"
+      ]
+    },
+    {
+      "name": "Energy Systems",
+      "description": "Studies systems that convert, transfer, and store energy, such as engines, power plants, and renewable energy systems.",
+      "discipline": [
+        "Mechanical Engineering",
+        "Energy Engineering",
+        "Chemical Engineering"
+      ]
+    },
+    {
+      "name": "Instrumentation and Measurement",
+      "description": "Covers the tools and methods for measuring physical quantities such as temperature, pressure, and displacement.",
+      "discipline": [
+        "Mechanical Engineering",
+        "Electrical Engineering",
+        "Biomedical Engineering"
+      ]
+    },
+    {
+      "name": "Historical Impacts of Treaties",
+      "description": "Explores how treaties, particularly the Treaty of Versailles, shaped political, economic, and social dynamics in Europe during the interwar period, influencing subsequent events leading to World War II.",
+      "discipline": ["History", "Political Science", "International Relations"]
+    },
+    {
+      "name": "Biological Energy Processes",
+      "description": "Focuses on the biochemical processes through which living organisms convert energy from sunlight and food into usable forms, primarily through photosynthesis and cellular respiration.",
+      "discipline": [
+        "Biological Engineering",
+        "Environmental Engineering",
+        "Biochemistry"
+      ]
+    },
+    {
+      "name": "Ohm's Law",
+      "description": "Explores the relationship between voltage, current, and resistance in electrical circuits, illustrating how they interact through mathematical equations and practical applications.",
+      "discipline": [
+        "Electrical Engineering",
+        "Electronics Engineering",
+        "Physics"
+      ]
+    },
+    {
+      "name": "Calculus",
+      "description": "Focuses on the study of change and motion, using derivatives and integrals to analyze functions and their rates of change.",
+      "discipline": [
+        "Mathematical Engineering",
+        "Mechanical Engineering",
+        "Electrical Engineering",
+        "Computer Engineering"
+      ]
+    },
+    {
+      "name": "Photoelectric Effect",
+      "description": "Explores the phenomenon where electrons are emitted from a material when it absorbs light, demonstrating the particle behavior of photons and providing evidence for the wave-particle duality of light.",
+      "discipline": [
+        "Physics Engineering",
+        "Materials Science",
+        "Electrical Engineering"
+      ]
+    },
+    {
+      "name": "Chemical Equilibrium",
+      "description": "Focuses on the principles governing the state in which the rates of forward and reverse chemical reactions are equal, allowing the system to predict shifts due to changes in concentration, temperature, or pressure.",
+      "discipline": [
+        "Chemical Engineering",
+        "Chemistry",
+        "Mechanical Engineering"
+      ]
+    },
+    {
+      "name": "Basic Algebra",
+      "description": "Focuses on the manipulation and solving of equations involving variables and constants, including operations such as addition, subtraction, multiplication, and exponentiation.",
+      "discipline": [
+        "Mathematics",
+        "Electrical Engineering",
+        "Computer Engineering"
+      ]
+    },
+    {
+      "name": "Analytical Geometry",
+      "description": "Focuses on the representation of geometric shapes and relationships through algebraic equations and the analysis of distances, such as in this case where lengths of ropes are being determined using geometric principles.",
+      "discipline": [
+        "Mathematics",
+        "Civil Engineering",
+        "Mechanical Engineering"
+      ]
+    },
+    {
+      "name": "Static Equilibrium",
+      "description": "Focuses on the conditions under which a system remains at rest or in uniform motion, often involving the calculation of variables such as forces and moments acting on a body.",
+      "discipline": [
+        "Mechanical Engineering",
+        "Civil Engineering",
+        "Structural Engineering"
+      ]
+    },
+    {
+      "name": "System Parameters in Dynamics",
+      "description": "Investigates the key variables that define the behavior of dynamic systems, particularly oscillations and vibrations, including parameters such as time and dynamic quantities.",
+      "discipline": [
+        "Mechanical Engineering",
+        "Aerospace Engineering",
+        "Control Engineering"
+      ]
+    },
+    {
+      "name": "Matrix Algebra",
+      "description": "Focuses on the study of matrices, including operations such as addition, multiplication, and finding determinants, which are essential in solving systems of equations and in various applications across engineering fields.",
+      "discipline": [
+        "Mathematics",
+        "Computer Science",
+        "Electrical Engineering",
+        "Mechanical Engineering"
+      ]
+    },
+    {
+      "name": "Statistics",
+      "description": "Focuses on the collection, analysis, interpretation, presentation, and organization of data, including measures of central tendency and variability such as standard deviation and variance.",
+      "discipline": [
+        "Mathematics",
+        "Computer Science",
+        "Data Science",
+        "Mechanical Engineering",
+        "Electrical Engineering"
+      ]
+    },
+    {
+      "name": "Projectile Motion",
+      "description": "Studies the motion of objects that are thrown or propelled into the air, focusing on the effects of gravity and initial velocity, especially at various launch angles.",
+      "discipline": [
+        "Mechanical Engineering",
+        "Aerospace Engineering",
+        "Civil Engineering"
+      ]
+    },
+    {
+      "name": "Error Analysis",
+      "description": "Focuses on the identification, quantification, and mitigation of errors in various systems, including computational, experimental, and engineering processes.",
+      "discipline": [
+        "Computer Engineering",
+        "Electrical Engineering",
+        "Mechanical Engineering",
+        "Civil Engineering"
+      ]
+    },
+    {
+      "name": "Vector Analysis",
+      "description": "Focuses on the representation and calculation of vectors, including their magnitude, direction, and the relationships between them in physics and engineering contexts.",
+      "discipline": [
+        "Mechanical Engineering",
+        "Civil Engineering",
+        "Aerospace Engineering",
+        "Electrical Engineering"
+      ]
+    },
+    {
+      "name": "Coordinate Geometry",
+      "description": "Focuses on the representation and analysis of geometric figures using coordinate systems and the relationships between angles and axes in these systems.",
+      "discipline": [
+        "Mathematics",
+        "Electrical Engineering",
+        "Computer Science"
+      ]
+    },
+    {
+      "name": "3D Moments",
+      "description": "Focuses on the analysis and calculation of moments in three-dimensional space, considering the effects of forces and distances from specific points of rotation in various engineering applications.",
+      "discipline": [
+        "Mechanical Engineering",
+        "Civil Engineering",
+        "Aerospace Engineering",
+        "Structural Engineering"
+      ]
+    },
+    {
+      "name": "Reaction Forces",
+      "description": "Focuses on the calculation and analysis of forces that are exerted by supports and connections in structures under load, essential for determining structural integrity and equilibrium.",
+      "discipline": [
+        "Civil Engineering",
+        "Mechanical Engineering",
+        "Structural Engineering",
+        "Aerospace Engineering"
+      ]
+    },
+    {
+      "name": "Distributed Forces",
+      "description": "Focuses on the analysis and computation of forces that are spread over an area or length in a mechanical system, including their resultant magnitudes and moments about a point.",
+      "discipline": [
+        "Civil Engineering",
+        "Mechanical Engineering",
+        "Structural Engineering",
+        "Aerospace Engineering"
+      ]
+    },
+    {
+      "name": "3D Rigid Body Mechanics",
+      "description": "Focuses on the analysis of forces and moments acting on rigid bodies in a three-dimensional space, including determining reaction forces and tensions in mechanical systems.",
+      "discipline": [
+        "Mechanical Engineering",
+        "Civil Engineering",
+        "Aerospace Engineering",
+        "Structural Engineering"
+      ]
+    },
+    {
+      "name": "Analytical Geometry",
+      "description": "Focuses on the representation and analysis of geometric figures using algebraic equations and coordinate systems, including applications in calculating areas and centroids.",
+      "discipline": [
+        "Civil Engineering",
+        "Mechanical Engineering",
+        "Structural Engineering"
+      ]
+    },
+    {
+      "name": "Statics and Mechanics",
+      "description": "Focuses on the analysis of forces and moments acting on physical systems in equilibrium, including the use of free body diagrams to determine forces and angles within structures.",
+      "discipline": [
+        "Mechanical Engineering",
+        "Civil Engineering",
+        "Structural Engineering"
+      ]
+    },
+    {
+      "name": "Kinematics",
+      "description": "Kinematics focuses on the motion of objects and the relationships between displacement, velocity, acceleration, and time, without considering the forces that cause the motion.",
+      "discipline": [
+        "Mechanical Engineering",
+        "Aerospace Engineering",
+        "Automotive Engineering",
+        "Civil Engineering"
+      ]
+    },
+    {
+      "name": "Specific Heat and Heat Transfer",
+      "description": "Focuses on the study of how different substances absorb and transfer thermal energy, particularly in the context of heating and cooling processes in various systems.",
+      "discipline": [
+        "Mechanical Engineering",
+        "Chemical Engineering",
+        "Thermal Engineering",
+        "Environmental Engineering",
+        "Aerospace Engineering"
+      ]
+    },
+    {
+      "name": "Matrix Inversion",
+      "description": "Focuses on the techniques and methods used to compute the inverse of matrices, including LU decomposition and other factorization methods.",
+      "discipline": [
+        "Mathematics",
+        "Computer Science",
+        "Electrical Engineering",
+        "Mechanical Engineering"
+      ]
+    },
+    {
+      "name": "Interpolation",
+      "description": "Focuses on estimating unknown values that fall within the range of known data points using various mathematical techniques such as polynomial fitting and spline methods.",
+      "discipline": [
+        "Mathematics",
+        "Computer Engineering",
+        "Control Systems",
+        "Civil Engineering"
+      ]
+    },
+    {
+      "name": "Energy Balance",
+      "description": "Focuses on the principles of energy conservation and transfer within thermodynamic systems, particularly in relation to heat transfer processes.",
+      "discipline": [
+        "Mechanical Engineering",
+        "Chemical Engineering",
+        "Aerospace Engineering",
+        "Environmental Engineering",
+        "Nuclear Engineering"
+      ]
+    },
+    {
+      "name": "Heat Transfer",
+      "description": "Focuses on the mechanisms of thermal energy transfer through conduction, convection, and radiation, particularly in relation to the heat diffusion equation and energy balance in thermal systems.",
+      "discipline": [
+        "Mechanical Engineering",
+        "Chemical Engineering",
+        "Civil Engineering",
+        "Aerospace Engineering"
+      ]
+    },
+    {
+      "name": "Heat Transfer Area",
+      "description": "Focuses on the concept of cross-sectional area as it pertains to heat transfer calculations, particularly in contexts like thermal energy flow and heat rate assessments.",
+      "discipline": [
+        "Mechanical Engineering",
+        "Chemical Engineering",
+        "Civil Engineering",
+        "Aerospace Engineering"
+      ]
+    },
+    {
+      "name": "Heat Transfer Phenomena",
+      "description": "Explores the mechanisms of heat transfer, including conduction, convection, and radiation, and their dependence on variables such as temperature difference, area, and material properties.",
+      "discipline": [
+        "Mechanical Engineering",
+        "Chemical Engineering",
+        "Materials Engineering",
+        "Aerospace Engineering"
+      ]
+    },
+    {
+      "name": "Heat Transfer",
+      "description": "Explores the mechanisms involved in the transfer of thermal energy through conduction, convection, and radiation, particularly focusing on the effects of various parameters such as temperature difference, area, and rod length on heat transfer rates.",
+      "discipline": [
+        "Mechanical Engineering",
+        "Chemical Engineering",
+        "Civil Engineering",
+        "Aerospace Engineering"
+      ]
+    },
+    {
+      "name": "Heat Transfer",
+      "description": "Focuses on the transfer of thermal energy in various systems, including the effects of temperature difference, area, rod length, and thermal conductivity on heat transfer rates.",
+      "discipline": [
+        "Mechanical Engineering",
+        "Chemical Engineering",
+        "Aerospace Engineering",
+        "Civil Engineering"
+      ]
+    },
+    {
+      "name": "Heat Transfer Principles",
+      "description": "Focuses on the mechanisms of thermal energy transfer, including conduction, convection, and their dependence on various physical parameters such as area, temperature difference, and length.",
+      "discipline": [
+        "Mechanical Engineering",
+        "Chemical Engineering",
+        "Aerospace Engineering",
+        "Civil Engineering"
+      ]
+    },
+    {
+      "name": "Mechanics of Materials",
+      "description": "Focuses on the behavior of solid objects subject to stresses and strains, analyzing how materials deform under various loading conditions and the relationship between stress and strain.",
+      "discipline": [
+        "Mechanical Engineering",
+        "Civil Engineering",
+        "Materials Science",
+        "Structural Engineering"
+      ]
+    },
+    {
+      "name": "Material Mechanics",
+      "description": "Studies the mechanical properties of materials, focusing on how they deform under various stresses and how these properties can be quantified, particularly through concepts like the modulus of elasticity.",
+      "discipline": [
+        "Mechanical Engineering",
+        "Civil Engineering",
+        "Materials Science",
+        "Structural Engineering"
+      ]
+    },
+    {
+      "name": "Elasticity",
+      "description": "Studies how materials deform when subjected to stress, focusing on the relationship between stress and strain within the elastic limit of materials.",
+      "discipline": [
+        "Mechanical Engineering",
+        "Materials Science",
+        "Civil Engineering"
+      ]
+    },
+    {
+      "name": "Young's Modulus",
+      "description": "Describes the relationship between stress and strain in materials, quantifying their stiffness during elastic deformation.",
+      "discipline": [
+        "Mechanical Engineering",
+        "Civil Engineering",
+        "Material Science"
+      ]
+    },
+    {
+      "name": "Material Mechanics",
+      "description": "Focuses on the behavior of materials under various types of load, including the study of stress and strain relationships, particularly within the elastic limit and proportional limit areas.",
+      "discipline": [
+        "Mechanical Engineering",
+        "Civil Engineering",
+        "Material Science"
+      ]
+    },
+    {
+      "name": "Structural Mechanics",
+      "description": "Focuses on the behavior of structures under various loads and conditions, including stress and strain analysis in materials such as prismatic bars.",
+      "discipline": [
+        "Mechanical Engineering",
+        "Civil Engineering",
+        "Aerospace Engineering"
+      ]
+    },
+    {
+      "name": "Gas Turbine Cycles",
+      "description": "Focuses on the analysis and performance of gas turbine systems, particularly utilizing the Brayton cycle for applications in power generation and propulsion.",
+      "discipline": [
+        "Mechanical Engineering",
+        "Aerospace Engineering",
+        "Energy Engineering"
+      ]
+    },
+    {
+      "name": "Mass Flow Rate",
+      "description": "Focuses on the analysis and calculation of the mass of fluid that passes through a given surface per unit time, and is crucial for understanding flow dynamics in various engineering systems.",
+      "discipline": [
+        "Mechanical Engineering",
+        "Chemical Engineering",
+        "Aerospace Engineering"
+      ]
+    },
+    {
+      "name": "Ideal Gas Behavior",
+      "description": "Focuses on the properties and applications of ideal gases, including calculations related to temperature, pressure, volume, and work done during processes like compression and expansion.",
+      "discipline": [
+        "Mechanical Engineering",
+        "Chemical Engineering",
+        "Aerospace Engineering"
+      ]
+    },
+    {
+      "name": "Thermodynamics",
+      "description": "Focuses on the principles governing energy transfer, heat, and work within thermodynamic cycles, including the analysis of compressors and heat engines.",
+      "discipline": [
+        "Mechanical Engineering",
+        "Aerospace Engineering",
+        "Chemical Engineering"
+      ]
+    },
+    {
+      "name": "Humidity Ratio",
+      "description": "Focuses on the measurement and calculation of water vapor present in the air, expressed as a ratio to the mass of dry air, and its implications on various systems and environments.",
+      "discipline": [
+        "Mechanical Engineering",
+        "Environmental Engineering",
+        "Chemical Engineering",
+        "HVAC Engineering"
+      ]
+    },
+    {
+      "name": "Polytropic Processes",
+      "description": "Focuses on thermodynamic processes that can be described with a polytropic equation, involving both temperature and pressure changes, typically in systems like piston-cylinder assemblies.",
+      "discipline": [
+        "Mechanical Engineering",
+        "Chemical Engineering",
+        "Aerospace Engineering",
+        "Energy Engineering"
+      ]
+    },
+    {
+      "name": "Refrigeration Cycles",
+      "description": "Focuses on the principles and calculations involved in gas refrigeration cycles, particularly the performance measures such as the coefficient of performance (COP) and the efficiency of compressors and turbines.",
+      "discipline": [
+        "Mechanical Engineering",
+        "Chemical Engineering",
+        "Aerospace Engineering",
+        "Thermal Engineering"
+      ]
+    },
+    {
+      "name": "Thermal Efficiency in Power Cycles",
+      "description": "Analyzes the performance and efficiency of thermodynamic cycles, particularly focusing on systems where multiple cycles operate in series or parallel, and their heat transfer characteristics.",
+      "discipline": [
+        "Mechanical Engineering",
+        "Chemical Engineering",
+        "Aerospace Engineering",
+        "Thermal Engineering"
+      ]
+    },
+    {
+      "name": "Enthalpy",
+      "description": "Focuses on the concept of enthalpy as it relates to thermodynamic systems, particularly in the analysis of energy changes during phase transitions and chemical reactions.",
+      "discipline": [
+        "Mechanical Engineering",
+        "Chemical Engineering",
+        "Aerospace Engineering",
+        "Energy Engineering"
+      ]
+    },
+    {
+      "name": "Kinematics",
+      "description": "Focuses on the motion of objects, including concepts such as velocity, acceleration, and the graphical representation of motion through velocity-time graphs.",
+      "discipline": [
+        "Mechanical Engineering",
+        "Physics",
+        "Aerospace Engineering",
+        "Automotive Engineering"
+      ]
+    },
+    {
+      "name": "Braking Mechanics",
+      "description": "Focuses on the principles and calculations related to the deceleration of vehicles during braking, including factors affecting stopping distance and force applied.",
+      "discipline": [
+        "Mechanical Engineering",
+        "Automotive Engineering",
+        "Transport Engineering"
+      ]
+    },
+    {
+      "name": "Mechanics",
+      "description": "Focuses on the behavior of physical bodies when subjected to forces or displacements, exploring motion, forces, and energy in systems such as projectile motion.",
+      "discipline": [
+        "Mechanical Engineering",
+        "Civil Engineering",
+        "Aerospace Engineering",
+        "Physics"
+      ]
+    },
+    {
+      "name": "Projectile Motion",
+      "description": "Studies the motion of objects that are launched into the air and are influenced only by the forces of gravity and air resistance, focusing on the trajectories and distances traveled.",
+      "discipline": [
+        "Mechanical Engineering",
+        "Civil Engineering",
+        "Aerospace Engineering",
+        "Physics",
+        "Automotive Engineering"
+      ]
+    },
+    {
+      "name": "Projectile Motion",
+      "description": "Studies the motion of objects that are launched into the air and are subject to gravitational forces, examining the trajectories, velocities, and impact points of the projectiles.",
+      "discipline": [
+        "Mechanical Engineering",
+        "Civil Engineering",
+        "Aerospace Engineering",
+        "Physics Engineering"
+      ]
+    },
+    {
+      "name": "Sports Engineering",
+      "description": "Focuses on the design, development, and analysis of sports equipment and technologies used in various sports, as well as the performance of athletes during competition.",
+      "discipline": [
+        "Mechanical Engineering",
+        "Biomedical Engineering",
+        "Electrical Engineering"
+      ]
+    },
+    {
+      "name": "Time and Motion Analysis",
+      "description": "Focuses on the calculations involving time, distance, and speed to analyze motion in various contexts, often applied in race scenarios or other dynamic systems.",
+      "discipline": [
+        "Mechanical Engineering",
+        "Sports Engineering",
+        "Transportation Engineering",
+        "Physics"
+      ]
+    },
+    {
+      "name": "Air Resistance",
+      "description": "Investigates the forces exerted by air on an object in motion, affecting its velocity and acceleration due to drag during free fall or movement through the atmosphere.",
+      "discipline": [
+        "Mechanical Engineering",
+        "Aerospace Engineering",
+        "Civil Engineering",
+        "Physics"
+      ]
+    },
+    {
+      "name": "Newton's Second Law of Motion",
+      "description": "Focuses on the relationship between the net force acting on an object, its mass, and its acceleration, as described by the equation F = ma.",
+      "discipline": [
+        "Mechanical Engineering",
+        "Aerospace Engineering",
+        "Physics"
+      ]
+    },
+    {
+      "name": "Fluid Mechanics",
+      "description": "Studies the behavior of fluids (liquids and gases) at rest and in motion, focusing on the effects of pressure and volume changes under various conditions.",
+      "discipline": [
+        "Mechanical Engineering",
+        "Civil Engineering",
+        "Chemical Engineering"
+      ]
+    },
+    {
+      "name": "Vector Mechanics",
+      "description": "Focuses on the analysis and application of forces and motion of objects, often expressed in vector equation forms.",
+      "discipline": [
+        "Mechanical Engineering",
+        "Civil Engineering",
+        "Aerospace Engineering"
+      ]
+    },
+    {
+      "name": "Parameter Estimation",
+      "description": "Focuses on determining the precise values of parameters in mathematical models through statistical methods and empirical data.",
+      "discipline": [
+        "Mathematics",
+        "Statistics",
+        "Control Systems",
+        "Electrical Engineering"
+      ]
+    },
+    {
+      "name": "Thermodynamics",
+      "description": "Focuses on the principles governing heat transfer and energy conversion in systems, often analyzing heat rate as a measure of performance.",
+      "discipline": [
+        "Mechanical Engineering",
+        "Chemical Engineering",
+        "Energy Engineering"
+      ]
+    },
+    {
+      "name": "Thermodynamics",
+      "description": "Focuses on the principles governing heat transfer and temperature conversion between different scales, including converting Kelvin to Celsius.",
+      "discipline": [
+        "Mechanical Engineering",
+        "Chemical Engineering",
+        "Physics",
+        "Environmental Engineering"
+      ]
+    }
+  ]
+}

@@ -46,7 +46,8 @@ class User(SQLModel, table=True):
     username: str | None
     email: str | None
     role: UserRole = UserRole.STUDENT
-
+    fb_id: str | None = None
+    storage_path: str | None = None
     created_questions: List["Question"] = Relationship(back_populates="created_by")
 
 

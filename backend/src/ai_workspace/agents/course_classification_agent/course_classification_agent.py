@@ -311,7 +311,7 @@ if __name__ == "__main__":
     ]
 
     for t in test_inputs:
-        results = app.invoke(t) # type: ignore
+        results = app.invoke(t)  # type: ignore
         # print(f"Retrieved Queries {results.get('queries')}\n")
         print("Question: ", t.get("question"))
         print(f"\n Generated answer: {results.get("generation")} \n")

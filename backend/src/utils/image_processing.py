@@ -1,10 +1,10 @@
 import base64
 from pathlib import Path
-from fastapi import HTTPException
-from langchain_core.prompts.chat import ChatPromptTemplate
+from typing import Optional, Any
+from langgraph.graph.state import CompiledStateGraph
 
 
-def encode_image(image_path: str|Path):
+def encode_image(image_path: str | Path):
     with open(image_path, "rb") as image_file:
         return base64.b64encode(image_file.read()).decode("utf-8")
 
@@ -20,21 +20,33 @@ def handle_image_data(data) -> bytes:
         raise e
 
 
-def write_image_data(
-    image_bytes: bytes, folder_path: str | Path, filename: str
-) -> bool:
+def write_image_data(image_bytes: bytes, folder_path: str | Path, filename: str) -> str:
     try:
         path = Path(folder_path).resolve()
-        if not path.exists():
-            path.mkdir(parents=True, exist_ok=True)
+        path.mkdir(exist_ok=True)
+        save_path = path / filename
 
-        save_path = path / f"{filename}"
         if save_path.suffix != ".png":
             raise ValueError(
                 "Suffix allowed is only PNG either missing or nnot allowed"
             )
-        with open(save_path, "wb") as f:
-            f.write(image_bytes)
-        return True
+        save_path.write_bytes(image_bytes)
+        return save_path.as_posix()
     except Exception as e:
-        raise Exception(f"Could not save image {str(e)}")
+        raise ValueError(f"Could not save image {str(e)}")
+
+
+def save_graph_visualization(
+    graph: CompiledStateGraph | Any,
+    folder_path: str | Path,
+    filename: str,
+):
+    try:
+        image_bytes = graph.get_graph().draw_mermaid_png()
+        save_path = write_image_data(image_bytes, folder_path, filename)
+
+        print(f"✅ Saved graph visualization at: {save_path}")
+    except ValueError:
+        raise
+    except Exception as error:
+        print(f"❌ Graph visualization failed: {error}")

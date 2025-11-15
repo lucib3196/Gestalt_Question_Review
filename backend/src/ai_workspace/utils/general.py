@@ -10,7 +10,6 @@ from uuid import UUID
 import fitz  # PyMuPDF
 import pandas as pd
 from IPython.display import Image, display
-from langgraph.graph import StateGraph
 from langchain_core.messages import BaseMessage, SystemMessage
 from langchain_core.prompt_values import ChatPromptValue
 from pydantic import BaseModel

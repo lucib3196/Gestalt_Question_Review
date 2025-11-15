@@ -1,4 +1,4 @@
-const math = require('mathjs');
+
 
 function generate() {
   const a = 1;

@@ -8,7 +8,7 @@ from src.utils import encode_image
 
 # --- Internal ---
 from src.api.core import logger
-from src.api.service.question_manager import QuestionManagerDependency
+from src.api.service.question.question_manager import QuestionManagerDependency
 from src.api.service.storage_manager import StorageDependency
 from src.api.models import *
 from fastapi import UploadFile

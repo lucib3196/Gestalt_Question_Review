@@ -24,7 +24,7 @@ export function QuestionButtons({
       <MyButton name={"Show Solution"} color="showSolution" onClick={showSolution} />
       <MyButton
         name={"Submit"}
-        btype="submit"
+        type="submit"
         onClick={handleSubmit}
         disabled={isSubmitted}
         color="submitQuestion"

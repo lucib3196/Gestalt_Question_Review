@@ -12,7 +12,7 @@ from src.api.core import logger
 from src.api.models import *
 from src.api.models.models import Question
 from src.api.models.sync_models import *
-from src.api.service.question_manager import QuestionManagerDependency
+from src.api.service.question.question_manager import QuestionManagerDependency
 from src.api.service.storage_manager import StorageDependency
 from src.utils import safe_dir_name, to_serializable
 

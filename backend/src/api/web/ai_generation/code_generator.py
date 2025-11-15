@@ -11,7 +11,7 @@ from pydantic import BaseModel
 # --- Internal Imports ---
 from src.api.models.models import Question
 from src.api.service.code_generation import run_text, run_image
-from src.api.service.question_resource import QuestionResourceDepencency
+from src.api.service.question.question_resource import QuestionResourceDepencency
 
 router = APIRouter(prefix="/code_generator", tags=["code_generator"])
 

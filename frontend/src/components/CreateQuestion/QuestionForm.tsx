@@ -3,7 +3,7 @@ import { ToggleButton, ToggleButtonGroup } from "@mui/material";
 import UploadFilesButton from "../Forms/UploadFileComponent";
 import { MyButton } from "../Base/Button";
 import type { QuestionData } from "../../types/questionTypes";
-import { QuestionAPI } from "../../api/questionCrud";
+import { QuestionAPI } from "../../api/questionAPI";
 
 function handleLanguages(languages: string[]) {
     return [
@@ -257,7 +257,7 @@ function QuestionCreationForm({ onFinish }: FormProps) {
 
                 {/* Submit */}
                 <div className="flex justify-center">
-                    <MyButton name="Create Question" btype="submit" />
+                    <MyButton name="Create Question" type="submit" />
                 </div>
             </form>
         </div>

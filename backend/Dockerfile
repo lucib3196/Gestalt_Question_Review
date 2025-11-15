@@ -7,14 +7,11 @@
 # Want to help us make this template better? Share your feedback here: https://forms.gle/ybq9Krt8jtBL3iCk7
 
 ARG PYTHON_VERSION=3.13.7
-FROM python:${PYTHON_VERSION}-slim as base
+FROM python:${PYTHON_VERSION}-slim as backend
 
-# Prevents Python from writing pyc files.
-ENV PYTHONDONTWRITEBYTECODE=1
-
-# Keeps Python from buffering stdout and stderr to avoid situations where
-# the application crashes without emitting any logs due to buffering.
-ENV PYTHONUNBUFFERED=1
+# Prevent Python from writing pyc files and buffer logs
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1
 
 WORKDIR /app
 
@@ -44,11 +41,17 @@ RUN apt-get update && apt-get install -y \
 #Install and setup poetry
 RUN pip install --no-cache-dir poetry
 
+# Copy dependency files first for caching
 COPY pyproject.toml poetry.lock* ./
 # Configure Poetry and install dependencies 
 RUN poetry config virtualenvs.create false \
     && poetry install --no-root --no-interaction --no-ansi
-
+# Install system dependencies for psycopg2 and other build tools
+RUN apt-get update && apt-get install -y \
+    gcc \
+    libpq-dev \
+    python3-dev \
+    && rm -rf /var/lib/apt/lists/*
 
 # Copy the source code into the container.
 COPY . .

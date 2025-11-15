@@ -41,17 +41,20 @@ RUN apt-get update && apt-get install -y \
 #Install and setup poetry
 RUN pip install --no-cache-dir poetry
 
-# Copy dependency files first for caching
-COPY pyproject.toml poetry.lock* ./
-# Configure Poetry and install dependencies 
-RUN poetry config virtualenvs.create false \
-    && poetry install --no-root --no-interaction --no-ansi
 # Install system dependencies for psycopg2 and other build tools
 RUN apt-get update && apt-get install -y \
     gcc \
     libpq-dev \
     python3-dev \
     && rm -rf /var/lib/apt/lists/*
+
+    
+# Copy dependency files first for caching
+COPY pyproject.toml poetry.lock* ./
+# Configure Poetry and install dependencies 
+RUN poetry config virtualenvs.create false \
+    && poetry install --no-root --no-interaction --no-ansi
+
 
 # Copy the source code into the container.
 COPY . .
